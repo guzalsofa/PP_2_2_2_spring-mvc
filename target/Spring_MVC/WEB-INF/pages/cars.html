@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Список машин</title>
+</head>
+<body>
+<h2>Список машин</h2>
+<table th:if="${cars}" style="border-collapse:collapse;">
+    <thead>
+    <tr>
+        <th style="border:1px solid #000; padding:4px;">Модель</th>
+        <th style="border:1px solid #000; padding:4px;">Цвет</th>
+        <th style="border:1px solid #000; padding:4px;">Год выпуска</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="car : ${cars}">
+        <td style="border:1px solid #000; padding:4px;" th:text="${car.model}">model</td>
+        <td style="border:1px solid #000; padding:4px;" th:text="${car.color}">color</td>
+        <td style="border:1px solid #000; padding:4px;" th:text="${car.year}">year</td>
+    </tr>
+    </tbody>
+</table>
+    <p th:if="${#lists.isEmpty(cars)}">Нет информации.</p>
+</body>
+</html>
